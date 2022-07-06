@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step01_dataType11.html</title>
+</head>
+<body>
+    <h1>javascript data type</h1>
+    <button onclick="remove()">삭제</button>    
+    <button onclick="input()">입력 받기</button>
+    <button onclick="print()">입력 받은 내용 출력하기</button>
+    <script>
+
+        function remove(){
+            //삭제 여부를 입력받아서 지역변수 isDelete에 담는다.
+            let isDelete=confirm("삭제할까여?");    //이 한 줄만으로는 로딩 시점에 실행, button 클릭시 실행하는 함수로 바꿔보기 
+            //만일 삭제할 거라면 (= isDelete에 true가 들어있다면)
+            if(isDelete){
+                //삭제하는 작업하기
+                console.log("삭제합니다.");
+            }
+        }
+
+        //페이지 로딩 시점에 global 영역에 변수를 만들어 놓는다.
+        let msg;    //이 msg는 input에서도 쓰고 print에서도 쓰이기 때문에 밖에다 써놓아야 한다.
+
+        function input(){
+            //global 영역에 만들어진 변수에 입력한 문자열을 지정한다.
+            msg=prompt("메세지를 입력하슈");
+        }
+
+        function print(){
+            //global 영역에 만들어진 변수에 있는 값을 참조해서 작업을 한다.
+            console.log(msg);          //그냥 console.log(msg)만 쓸 수 없는 이유는 다른 지역변수끼리는 가져올 수가 없기 때문에. 맨 위 global 영역에 msg를 만들어놓고 참조한다.
+        }
+
+    </script>
+</body>
+</html>
