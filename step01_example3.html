@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step01_example3.html</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <button onclick="plus()">+</button>
+    <button onclick="minus()">-</button>
+    <input type="text" id="num2">
+    =
+    <span id="result"></span>
+    <script>
+
+        function plus(){        //입력한 값을 읽어온다.
+            let a=document.querySelector("#num1").value;        //string type이 됨
+            let b=document.querySelector("#num2").value;
+            let result=Number(a)+Number(b);                     //연산의 결과값을 얻어낸다.
+            document.querySelector("#result").innerText=result;                   //span 요소의 innerText로 출력하기  
+        }
+
+        function minus(){       //let minus=function(){  <-이렇게도 가능
+            let a=document.querySelector("#num1").value;
+            let b=document.querySelector("#num2").value;
+            let result=Number(a)-Number(b);
+            document.querySelector("#result").innerText=result;
+        }
+        
+ 
+
+    </script>
+</body>
+</html>

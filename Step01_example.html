@@ -8,9 +8,22 @@
 </head>
 <body>
     <p>p1입니다</p>
-    <p>p2입니다</p>
-    <p>p3입니다</p>
-    <p>p4입니다</p>
+    <p id="one" class="my-class">p2입니다</p>
+    <p id="two" class="my-class">p3입니다</p>
+    <p class="my-class">p4입니다</p>
     <p>p5입니다</p>
+    <button onclick="change()">바꾸기</button>
+    <script>
+        
+        document.querySelectorAll("p")[0].innerText="김님딤";       //페이지 로딩 시점에 실행
+
+        /*
+            바꾸기 버튼을 누르면 id가 one인 요소의 innerText를
+            "해골"로 바뀌도록 프로그래밍 해보세요.
+        */
+        function change(){
+            document.querySelector("#one").innerText="해골"
+        };
+    </script>
 </body>
 </html>
