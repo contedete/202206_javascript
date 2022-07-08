@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step02_example4.html</title>
+</head>
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <div>div5</div>
+    <div>div6</div>
+    <div>div7</div>
+    <div>div8</div>
+    <div>div9</div>
+    <div>div10</div>
+    <div>div11</div>
+    <button id="changeBtn">바꾸기</button>
+    <button id="changeBtn2">바꾸기2</button>
+    <button id="changeBtn3">바꾸기3</button>
+    <script>
+        //함수 안이 아닌 페이지 로딩 시점에 index 변수를 만들고 초기값을 0으로 설정해야 값이 유지된다.
+        let index=0;    
+
+        document.querySelector("#changeBtn").addEventListener("click", function(){
+            //index가 10보다 작으면 if문 {} 안에 있는 내용을 실행하고
+            //그렇지 않으면(10 이상이면) 건너뛴다.
+            //이렇게 조건을 줄 때 if문을 사용한다.
+            if(index<10){
+                let divs=document.querySelectorAll("div");
+                //배열의 특정 인덱스에 들어잇는 div 요소의 innerText를 변화시킨다.
+                divs[index].innerText="김님딤";
+                //index 값을 1 증가시킨다.  //이 부분을 앞에 넣으면 [0]의 innertext가 바뀌기 전에 +1이 돼버린다.
+                index=index+1
+            }
+        });
+
+        
+
+        document.querySelector("#changeBtn2").addEventListener("click", function(){
+            //만일 index가 10이면
+            if(index==10){  
+                //함수를 여기서 끝내라 (종료)
+                return;
+            }
+            let divs=document.querySelectorAll("div");
+            divs[index].innerText="김님딤";
+            index=index+1
+        });
+        //위 코드와 같은 내용이지만, return을 이용해서 미리 함수를 끝낼 수 있는 방법이 있다.
+
+
+
+        document.querySelector("#changeBtn3").addEventListener("click", function(){ 
+            let divs=document.querySelectorAll("div");
+            if(index == divs.length ){      //정해진 숫자 말고 length 끌어와서 유동적으로 사용
+                return;
+            }
+            divs[index].innerText="김구라";
+            index = index+1;
+        });
+
+    </script>
+</body>
+</html>

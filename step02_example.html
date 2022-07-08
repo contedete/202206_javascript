@@ -12,11 +12,11 @@
     <p id="console">0</p>
     <script>
 
-        let count=0;
+        let count=0;    //페이지 로딩 시점에 0을 미리 만들어놓으면 값이 유지됨
 
         document.querySelector("#plusBtn").addEventListener("click", function(){
-            count = count+1;
-            document.querySelector("#console").innerText=count+"px";
+            count = count+1;    //그러구 함수 안에서 가져다 쓴다
+            document.querySelector("#console").innerText=count+"px";    //연결연산
         });
 
         document.querySelector("#minusBtn").addEventListener("click", function(){
