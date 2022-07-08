@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step02_example11-1.html</title>
+    <style>
+        p{color: darkmagenta;font-size: 30px;}
+    </style>
+</head>
+<body>
+    <h1>가위 바위 보 게임 복습</h1>
+    <br>
+    <select id="mySelect">
+        <option value="">me : 선택</option>
+        <option value="0">me : 가위</option>
+        <option value="1">me : 바위</option>
+        <option value="2">me : 보</option>
+    </select>
+    <strong>VS</strong>
+    <select id="comSelect">
+        <option value="">com : </option>
+        <option value="0">com : 가위</option>
+        <option value="1">com : 바위</option>
+        <option value="2">com : 보</option>        
+    </select>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p id="result"></p>
+
+    <script>
+        //mySelect 요소에 change 이벤트가 생겼을 때 실행할 함수를 등록
+        document.querySelector("#mySelect").addEventListener("change",function(){
+            //mySelect에서 선택한 value값 읽어오기 "0" or "1" or "2"
+            let value=document.querySelector("#mySelect").value;
+
+            //"0" or "1" or "2" 중에 랜덤한 숫자 하나 얻어내기
+            let ranNum=Math.floor(Math.random()*3);
+            //랜덤한 숫자를 comSelect의 value로 넣어주기
+            document.querySelector("#comSelect").value=ranNum;
+
+
+            if(value==0){
+                if(ranNum==0){
+                    document.querySelector("#result").innerText="DRAW";
+                }else if(ranNum==1){
+                    document.querySelector("#result").innerText="LOSE";
+                }else if(ranNum==2){
+                    document.querySelector("#result").innerText="WIN";
+                }
+
+
+            }else if(value==1){
+                if(ranNum==0){
+                    document.querySelector("#result").innerText="WIN";
+                }else if(ranNum==1){
+                    document.querySelector("#result").innerText="DRAW";
+                }else if(ranNum==2){
+                    document.querySelector("#result").innerText="LOSE";
+                }
+
+
+            }else if(value==2){
+                if(ranNum==0){
+                    document.querySelector("#result").innerText="LOSE";
+                }else if(ranNum==1){
+                    document.querySelector("#result").innerText="WIN";
+                }else if(ranNum==2){
+                    document.querySelector("#result").innerText="DRAW";
+                }
+            }
+        });
+   </script>
+</body>
+</html>
